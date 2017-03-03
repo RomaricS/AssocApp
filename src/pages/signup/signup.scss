@@ -1,0 +1,44 @@
+page-signup {
+
+/* Login
+==================================*/
+
+.app-icon {
+    background: url('../img/crown.jpg') center;
+    background-size: cover;
+    border-radius: 50%;
+    height: 125px;
+    margin: 0 auto;
+    width: 125px;
+}
+
+  .list{
+    background-color: transparent;
+  }
+
+    .ink{
+    background-color: map-get($colors, primary);
+    color: map-get($colors, light);
+  }
+
+  ion-input{
+    color: map-get($colors , light );
+   // background-color: rgba(22, 160, 133,0.2);
+  }
+
+  ion-input:hover, ion-label:focus{
+    border-bottom: 1px solid red;
+  }
+    .roma input::-webkit-input-placeholder {
+    color: #ecf0f1 ;
+  }
+
+  .roma input:-moz-placeholder {
+    color: #ecf0f1 ;
+  }
+  .roma input:-ms-input-placeholder { /* IE10+ */
+    color: #ecf0f1 ;
+  }
+
+
+}

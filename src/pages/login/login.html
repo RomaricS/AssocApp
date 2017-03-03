@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="primary1">
+    <ion-title text-center>Connexion</ion-title>
+  </ion-navbar>
+</ion-header>
+
+    <ion-content class="roma" style="background: url(img/card-sf.png) center; background-size: cover;">
+
+    <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+
+        <div class="hero no-header flat">
+            <div class="content">
+                <div class="app-icon"></div>
+                <h1>Se connecter</h1>
+            </div>
+        </div>
+
+        <div class="list">
+
+            <ion-input #email placeholder="Email" formControlName="email" type="email" (change)="elementChanged(email)"
+                [class.invalid]="!loginForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+                <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  && (emailChanged || submitAttempt)">
+                    <p>Entrez un mail valide : XXXXXX@XXXX.XXX</p>
+                </ion-item>
+
+            <ion-input #password placeholder="Password" formControlName="password" type="password" (change)="elementChanged(password)"
+            [class.invalid]="!loginForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
+            <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  && (passwordChanged || submitAttempt)">
+            <p>6 caractères minimum requis pour le mot de passe</p>
+            </ion-item>
+        </div>
+
+        <div class="padding">
+            <button class="button button-full ink" type="submit">Go!</button>
+        </div>
+        
+    </form>
+
+        <div class="button-bar social-login">
+            <button class="button button-small register" color="ownred" (click)="goToSignup()">Je suis nouveau</button>
+            <button class="button button-small forgot" color="ownblue" (click)="goToResetPassword()">Mot de passe oublié</button>
+        </div>
+
+</ion-content>
+

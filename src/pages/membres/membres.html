@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Liste des Résidnents</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding style="background: url(img/bg1.jpg) center; background-size: cover;">
+<ion-searchbar placeholder="Chercher un membre" animated="true" (ionInput)="getItems($event)"></ion-searchbar>
+<ion-list>
+    <a ion-item *ngFor="let member of memberslist | async" (click)="getDetails(member.nom,member.prenom,member.email,member.chambre)">
+     <p>{{member.prenom}} {{member.nom}}</p>
+      <div class="item-note" item-right>
+          <p> Chambre {{member.chambre}}</p>
+      </div>
+    </a>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profil</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="broker" style="background: url(img/bg1.jpg) center; background-size: cover;" *ngFor="let user of userProfile | async">
+        <div text-center class="biggy">
+                    <div class="lil">
+                        <ion-thumbnail item-left>
+                        <img src={{user.image}}>
+                        </ion-thumbnail>
+                        <p>{{user.nom | uppercase}} {{user.prenom}}</p>
+
+                    </div>
+
+                    <div class="big">
+                        <div>
+                        <p>
+                        <ion-icon name='briefcase' item-left></ion-icon> Profession</p>
+                        <p>
+                            {{user.prof}}
+                        </p>
+                        </div>
+
+                        <div>
+                        <p>
+                        <ion-icon name='home' item-left></ion-icon> Résidant au </p>
+                            <p>
+                                {{user.chambre}}
+                            </p>
+                        </div>
+
+
+                        <div>
+                            <p>
+                            <ion-icon name='mail' item-left></ion-icon>
+                            Email
+                            </p>
+                            <p>{{user.email}}</p>
+                        </div>
+
+                        <div>
+                            <p>
+                            <ion-icon name='md-calendar' item-left></ion-icon>
+                            Résidant depuis</p>
+                            <p>
+                                {{user.arrivee}}
+                            </p>
+                        </div>
+                    </div>
+        </div>
+
+</ion-content>

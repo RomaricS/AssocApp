@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Inscription</ion-title>
+  </ion-navbar>
+</ion-header>
+
+    <ion-content class="roma" style="background: url(img/card-sf.png) center; background-size: cover;">
+
+    <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+
+        <div class="hero no-header flat">
+            <div class="content">
+                <div class="app-icon" (click)="accessGallery()"></div>
+                <h1>Bienvenue</h1>
+            </div>
+        </div>
+
+        <div class="list" text-center>
+
+            <ion-input #email placeholder="Email" formControlName="email" type="email" (change)="elementChanged(email)"
+                [class.invalid]="!signupForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+                <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && (emailChanged || submitAttempt)">
+                    <p>Entrez un mail valide : XXXXXX@XXXX.XXX</p>
+                </ion-item>
+
+            <ion-input #password placeholder="Mot de passe" formControlName="password" type="password" (change)="elementChanged(password)"
+            [class.invalid]="!signupForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
+            <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && (passwordChanged || submitAttempt)">
+            <p>6 caractères minimum requis pour le mot de passe</p></ion-item>
+
+            <ion-input #nom formControlName="nom" placeholder="Votre nom" type="text"></ion-input>
+
+            <ion-input #prenom formControlName="prenom"placeholder="Votre prénom" type="text"></ion-input>
+
+            <ion-input #chambre formControlName="chambre" placeholder="Chambre N°" type="text"></ion-input>
+
+            <ion-input #prof formControlName="prof" placeholder="Profession" type="text"></ion-input>
+
+            <ion-item class="erase">
+                <ion-label><ion-icon name="calendar"></ion-icon> Date d'entrée</ion-label>
+                <ion-datetime #dateEntree formControlName="dateEntree" displayFormat="DD/MM/YYYY" ></ion-datetime>
+            </ion-item>
+
+             <button ion-button color="primary" outline class="image" (click)="accessGallery()">Charger une image</button>
+
+        </div>
+
+        <div class="padding">
+            <button class="button button-full ink" type="submit">Let's Go</button>
+        </div>
+
+
+
+        
+    </form>
+
+</ion-content>
+

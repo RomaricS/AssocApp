@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Fiche Résident</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding style="background: url(img/bg1.jpg) center; background-size: cover;">
+  <ion-card>
+    <ion-card-header>
+      {{ prenom }}
+    </ion-card-header>
+
+    <ion-list>
+      <button ion-item>
+        <ion-icon name="cart" item-left></ion-icon>
+        Prénom : {{ prenom }}
+      </button>
+
+      <button ion-item>
+        <ion-icon name="medical" item-left></ion-icon>
+       Nom : {{ nom }}
+      </button>
+
+      <button ion-item>
+        <ion-icon name="mail" item-left></ion-icon>
+        Mail : {{ mail }}
+      </button>
+
+      <button ion-item>
+        <ion-icon name="home" item-left></ion-icon>
+        Réside au {{ chambre }}
+      </button>
+
+    </ion-list>
+  </ion-card>
+</ion-content>
+
