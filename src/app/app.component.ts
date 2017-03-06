@@ -43,7 +43,7 @@ export class MyApp {
       if(user) {
         // user logged in
         this.currentUser = user;
-        this.rootPage = HomePage;
+        this.rootPage = ChatPage;
         //Pour cacher le bouton deconnecter
         this.checkDec = "Ok";
 

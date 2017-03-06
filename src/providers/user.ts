@@ -13,15 +13,17 @@ export class User {
   loadedUsersList: any;
   usersRef:any;
   usersList:any;
+  messages: FirebaseListObservable<any>;
   
 
   constructor(public http: Http,public af: AngularFire,public auth$: AngularFireAuth) {
       auth$.subscribe((state: FirebaseAuthState) => {
       this.authState = state;
        });
+       this.messages = af.database.list('/Messages');
 
        //Récupérrer tableau de données sur user authenttifié
-        this.af.auth.subscribe(user => {
+        af.auth.subscribe(user => {
           if(user) {
             // user logged in
             this.currentUser = user;
@@ -89,5 +91,23 @@ export class User {
     this.getFullUserInfos(email);
     //le profil est chargé dans la propriété userfromdb
   }
+
+  getMessages(){
+    return this.messages;
+  }
+
+  sendMessage(mess: string,
+              nom:string,
+              pren:string,
+              mail){
+    this.messages.push({
+          message: mess,
+          nom: nom,
+          prenom: pren,
+          email: mail,
+          time: new Date().toLocaleTimeString()
+      });
+    }
+
 
 }

@@ -22,6 +22,10 @@ $font-path: "../assets/fonts";
 // to match your app's branding. Ionic uses a Sass map of
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
+$chat-bubble:(
+  background-left: #fea21c,
+  background-right: #8abefa,
+);
 
 $colors: (
  // primary:    #387ef5,
