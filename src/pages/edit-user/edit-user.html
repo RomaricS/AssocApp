@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Editer</ion-title>
+  </ion-navbar>
+</ion-header>
+
+    <ion-content class="roma" *ngFor="let pfl of monProfil | async">
+
+    <form [formGroup]="editForm" (submit)="editUser()" novalidate>
+
+        <div class="hero no-header flat">
+            <div class="content">
+                <div class="app-icon" (click)="accessGallery()"></div>
+            </div>
+        </div>
+
+        <div class="list" text-center>
+
+            <ion-input #email placeholder="{{pfl.email}}" formControlName="email" type="email" ></ion-input>
+
+
+            <ion-input #password placeholder="{{pfl.password}}" formControlName="password" type="password" ></ion-input>
+
+
+            <ion-input #nom placeholder="{{pfl.nom}}" formControlName="nom" type="text"></ion-input>
+
+            <ion-input #prenom placeholder="{{pfl.prenom}}" formControlName="prenom" type="text"></ion-input>
+
+            <ion-input #chambre formControlName="chambre" type="text">{{pfl.chambre}}</ion-input>
+
+            <ion-input #prof placeholder="{{pfl.prof}}" formControlName="prof" type="text"></ion-input>
+
+            <ion-item class="erase">
+                <ion-label><ion-icon name="calendar"></ion-icon> Date d'entrée</ion-label>
+                <ion-datetime #dateEntree formControlName="dateEntree" displayFormat="DD/MM/YYYY" ></ion-datetime>
+            </ion-item>
+
+             <button ion-button color="primary" outline class="image" (click)="accessGallery()">Charger une image</button>
+
+        </div>
+
+        <div class="padding">
+            <button class="button button-full ink" type="submit">Let's Go</button>
+        </div>
+
+
+
+        
+    </form>
+
+</ion-content>
+

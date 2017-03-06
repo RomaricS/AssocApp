@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { AnnoncesPage } from '../pages/annonces/annonces';
 import { ChatPage } from '../pages/chat/chat';
 import { MembresPage } from '../pages/membres/membres';
+
 import { MembreDetailPage } from '../pages/membre-detail/membre-detail';
 import { ProfilPage } from '../pages/profil/profil';
 import { SignupPage } from '../pages/signup/signup';
@@ -18,6 +19,7 @@ import { AuthData } from '../providers/auth-data';
 import { User } from '../providers/user';
 
 import { MembresService } from '../services/membres/membres.services';
+import { EditUserPage } from '../pages/edit-user/edit-user';
 
 
 export const firebaseConfig = {
@@ -40,7 +42,8 @@ export const firebaseConfig = {
     ProfilPage,
     LoginPage,
     SignupPage,
-    ResetPasswordPage
+    ResetPasswordPage,
+    EditUserPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -57,7 +60,8 @@ export const firebaseConfig = {
     ProfilPage,
     LoginPage,
     SignupPage,
-    ResetPasswordPage 
+    ResetPasswordPage,
+    EditUserPage 
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthData, MembresService, User]
 })

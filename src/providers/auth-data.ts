@@ -98,4 +98,28 @@ export class AuthData {
     return this.fireAuth.signOut();
   }
 
+  /**
+   * Edit user profile
+   */
+  editUser( email: string,
+              password: string,
+              nom: string,
+              prenom: string,
+              chambre: number,
+              dateEntree: string,
+              prof: string,
+              pic:string): any {
+
+      this.userProfile.update({
+          email: email,
+          password: password,
+          nom: nom,
+          prenom: prenom,
+          chambre: chambre,
+          arrivee: dateEntree,
+          prof: prof,
+          image: pic
+      });
+  }
+
 }
