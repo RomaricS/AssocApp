@@ -7,19 +7,35 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding >
 
-  <ion-list no-lines>
+  <ion-list no-lines *ngFor="let usr of mesInfos | async">
+
     <ion-item  *ngFor="let msg of messages | async">
 
-      <div class="bubble me" color="primary">
-      <div>
-        <div><span style="font-weight:bold;">{{msg.prenom}} : </span> {{msg.message}}</div>
-        <div>
-            <p>à {{msg.time}}</p>
+    <div *ngIf="usr.email != msg.email">
+        <div class="bubble me" color="primary">
+          <div>
+            <div><span style="font-weight:bold;">{{msg.prenom}} : </span> {{msg.message}}</div>
+            <div>
+                <p>à {{msg.time}}</p>
+            </div>
+          </div>
         </div>
-      </div>
     </div>
+
+
+    <div *ngIf="usr.email == msg.email">
+        <div class="bubble you" color="primary">
+          <div>
+            <div><span style="font-weight:bold;">{{msg.prenom}} : </span> {{msg.message}}</div>
+            <div>
+                <p>à {{msg.time}}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+
     
     </ion-item>
   </ion-list>
