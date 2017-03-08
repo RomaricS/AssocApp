@@ -16,6 +16,12 @@ page-signup {
     border: 1px solid rgba(255, 255, 255,0.3);
     color: map-get($colors , light );
     background: transparent;
+    box-shadow: 1px 1px 5px rgba(255, 255, 255,0.1);
+        -webkit-transition: background 1s;
+    transition: background 1s;
+  }
+    .ink:hover{
+    background: rgba(255, 255, 255,0.3);
   }
 
   .roma ion-input{
@@ -27,6 +33,10 @@ page-signup {
     transition: padding 1s;
     color: map-get($colors , light );
     background-color: rgba(255, 255, 255,0.1);
+  }
+
+  .error-message{
+
   }
 
   ion-input:hover, ion-label:focus{
@@ -49,6 +59,7 @@ page-signup {
   border: none;
   color: map-get($colors , light );
   background-color: rgba(255, 255, 255,0.1);
+  
   }
 
 }
