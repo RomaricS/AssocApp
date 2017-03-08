@@ -1,3 +1,62 @@
 page-edit-user {
-    color: #000;
+img {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    margin: auto;
+
+}
+
+    .ink{
+    border: 1px solid rgba(255, 255, 255,0.3);
+    color: map-get($colors , light );
+    background: transparent;
+    box-shadow: 1px 1px 5px rgba(255, 255, 255,0.1);
+        -webkit-transition: background 1s;
+    transition: background 1s;
+  }
+    .ink:hover{
+    background: rgba(255, 255, 255,0.3);
+  }
+
+  .roma ion-input{
+    margin-bottom: 10px;
+    -webkit-transition: border-bottom 1s;
+    transition: border-bottom 1s;
+    -webkit-transition: padding 1s;
+    transition: padding 1s;
+    color: map-get($colors , light );
+    //background-color: rgba(255, 255, 255,0.1);
+    border-bottom: 1px solid white;
+  }
+
+  .error-message{
+    background-color: transparent;
+    color:red;
+  }
+
+
+  ion-input:hover, ion-label:focus{
+    border-bottom: 1px solid white;
+    padding: 12px;
+  }
+    .roma input::-webkit-input-placeholder {
+    color: #ecf0f1 ;
+  }
+
+  .roma input:-moz-placeholder {
+    color: #ecf0f1 ;
+  }
+  .roma input:-ms-input-placeholder { /* IE10+ */
+    color: #ecf0f1 ;
+  }
+
+.erase{
+  background: transparent;
+  border: none;
+  color: white;
+  background-color: rgba(255, 255, 255,0.1);
+  
+  }
+
 }

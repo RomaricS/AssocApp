@@ -4,29 +4,31 @@
   </ion-navbar>
 </ion-header>
 
-    <ion-content class="roma" *ngFor="let pfl of monProfil | async">
+    <ion-content class="roma" style="background: url(img/p2.jpg) center; background-size: cover;" *ngFor="let pfl of monProfil | async" padding>
 
     <form [formGroup]="editForm" (submit)="editUser()" novalidate>
 
-        <div class="hero no-header flat">
+        <div class="hero flat">
             <div class="content">
-                <div class="app-icon" (click)="accessGallery()"></div>
+                <img src="{{pfl.image}}" class="rotate90" (click)="accessGallery()">
             </div>
+            <p>
+            </p>
         </div>
 
-        <div class="list" text-center>
+        <div class="list" padding>
 
             <ion-input #email placeholder="{{pfl.email}}" formControlName="email" type="email" ></ion-input>
 
 
-            <ion-input #password placeholder="{{pfl.password}}" formControlName="password" type="password" ></ion-input>
+            <ion-input #password placeholder="Entrez le mot de passe" formControlName="password" type="password" ></ion-input>
 
 
-            <ion-input #nom placeholder="{{pfl.nom}}" formControlName="nom" type="text"></ion-input>
+            <ion-input #nom placeholder="{{pfl.nom | uppercase}}" formControlName="nom" type="text"></ion-input>
 
             <ion-input #prenom placeholder="{{pfl.prenom}}" formControlName="prenom" type="text"></ion-input>
 
-            <ion-input #chambre formControlName="chambre" type="text">{{pfl.chambre}}</ion-input>
+            <ion-input #chambre placeholder="{{pfl.chambre}}" formControlName="chambre" type="text"></ion-input>
 
             <ion-input #prof placeholder="{{pfl.prof}}" formControlName="prof" type="text"></ion-input>
 
@@ -35,17 +37,12 @@
                 <ion-datetime #dateEntree formControlName="dateEntree" displayFormat="DD/MM/YYYY" ></ion-datetime>
             </ion-item>
 
-             <button ion-button color="primary" outline class="image" (click)="accessGallery()">Charger une image</button>
-
         </div>
 
         <div class="padding">
-            <button class="button button-full ink" type="submit">Let's Go</button>
+            <button class="button button-full ink" type="submit">Enregistrer</button>
         </div>
-
-
-
-        
+       
     </form>
 
 </ion-content>

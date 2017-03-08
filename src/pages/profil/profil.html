@@ -1,60 +1,76 @@
 <ion-header>
   <ion-navbar color="primary">
+
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
-    </button>
-        <button ion-button (click)="edit()">
-      <ion-icon name="edit"></ion-icon>
-    </button>
+      </button>
+
     <ion-title>Profil</ion-title>
+
+    <ion-buttons end>
+        <button ion-button icon-only (click)="edit()">
+        <ion-icon name="create"></ion-icon>
+        </button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
-<ion-content class="broker" style="background: url(img/bg1.jpg) center; background-size: cover;" *ngFor="let user of userProfile | async">
-        <div text-center class="biggy">
-                    <div class="lil">
-                        <ion-thumbnail item-left>
-                        <img src={{user.image}}>
-                        </ion-thumbnail>
-                        <p>{{user.nom | uppercase}} {{user.prenom}}</p>
+<ion-content class="broker" *ngFor="let user of userProfile | async">
+        <div text-center class="biggy" style="background: url(img/beach.jpg) center; background-size: cover;">
 
-                    </div>
+            <div class="lil">
+                <ion-thumbnail item-left>
+                <img src="{{user.image}}" class="rotate90">
+                </ion-thumbnail>
+                <p>{{user.nom | uppercase}} {{user.prenom}}</p>
 
-                    <div class="big">
-                        <div>
-                        <p>
-                        <ion-icon name='briefcase' item-left></ion-icon> Profession</p>
-                        <p>
-                            {{user.prof}}
-                        </p>
-                        </div>
+            </div>
+        </div>
 
-                        <div>
-                        <p>
-                        <ion-icon name='home' item-left></ion-icon> Résidant au </p>
-                            <p>
-                                {{user.chambre}}
-                            </p>
-                        </div>
+        <div class="low" padding>
+
+        <ion-list class="big" no-lines>
+            <ion-item>
+            <ion-icon name='briefcase' item-left></ion-icon>
+            Profession
+
+            <p item-right>
+                {{user.prof}}
+            </p>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name='home' item-left></ion-icon>
+                
+                Réside au
+
+                <p item-right>
+                    {{user.chambre}}
+                </p>
+            </ion-item>
 
 
-                        <div>
-                            <p>
-                            <ion-icon name='mail' item-left></ion-icon>
-                            Email
-                            </p>
-                            <p>{{user.email}}</p>
-                        </div>
+            <ion-item>
+                <ion-icon name='mail' item-left></ion-icon>
 
-                        <div>
-                            <p>
-                            <ion-icon name='md-calendar' item-left></ion-icon>
-                            Résidant depuis</p>
-                            <p>
-                                {{user.arrivee}}
-                            </p>
-                        </div>
-                    </div>
+                Email
+            
+                <p item-right>{{user.email}}</p>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name='md-calendar' item-left></ion-icon>
+
+                Résidant depuis
+
+                <p item-right>
+                    {{user.arrivee}}
+                </p>
+
+            </ion-item>
+        </ion-list>
+
         </div>
 
 </ion-content>

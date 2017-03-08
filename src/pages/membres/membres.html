@@ -8,14 +8,18 @@
 </ion-header>
 
 
-<ion-content padding style="background: url(img/bg1.jpg) center; background-size: cover;">
-<ion-searchbar placeholder="Chercher un membre" animated="true" (ionInput)="getItems($event)"></ion-searchbar>
-<ion-list>
-    <a ion-item *ngFor="let member of memberslist | async" (click)="getDetails(member.nom,member.prenom,member.email,member.chambre)">
+<ion-content padding style="background: url(img/p4.jpg) center; background-size: cover;" padding>
+<ion-list class="liste" no-lines>
+    <ion-item *ngFor="let member of memberslist | async" (click)="getDetails(member.nom,member.prenom,member.email,member.chambre)">
+
+      <img src="{{member.image}}" class="image" item-left>
+
      <p>{{member.prenom}} {{member.nom}}</p>
-      <div class="item-note" item-right>
-          <p> Chambre {{member.chambre}}</p>
-      </div>
-    </a>
+
+
+          <p item-right> Chambre {{member.chambre}}</p>
+
+
+    </ion-item>
   </ion-list>
 </ion-content>

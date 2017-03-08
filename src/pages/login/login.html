@@ -1,21 +1,21 @@
 <ion-header>
-  <ion-navbar color="primary1">
+  <ion-navbar color="primary">
     <ion-title text-center>Connexion</ion-title>
   </ion-navbar>
 </ion-header>
 
-    <ion-content class="roma" style="background: url(img/card-sf.png) center; background-size: cover;">
+    <ion-content class="roma" style="background: url(img/purple.jpg) center; background-size: cover;">
 
     <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
 
-        <div class="hero no-header flat">
+        <div class="hero flat">
             <div class="content">
                 <div class="app-icon"></div>
-                <h1>Se connecter</h1>
+                <h4>Se connecter</h4>
             </div>
         </div>
 
-        <div class="list">
+        <div class="list" padding>
 
             <ion-input #email placeholder="Email" formControlName="email" type="email" (change)="elementChanged(email)"
                 [class.invalid]="!loginForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
@@ -32,14 +32,15 @@
 
         <div class="padding">
             <button class="button button-full ink" type="submit">Go!</button>
+            <p (click)="goToResetPassword()" text-center>J'ai oublié mon <strong>Mot de passe</strong> </p>
         </div>
         
     </form>
 
-        <div class="button-bar social-login">
-            <button class="button button-small register" color="ownred" (click)="goToSignup()">Je suis nouveau</button>
-            <button class="button button-small forgot" color="ownblue" (click)="goToResetPassword()">Mot de passe oublié</button>
-        </div>
 
 </ion-content>
+
+<ion-footer padding class="foot">
+            <p (click)="goToSignup()" text-center>Je n'ai pas encore de compte, <strong>Je m'inscris</strong> </p>
+</ion-footer>
 

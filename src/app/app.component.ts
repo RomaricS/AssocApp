@@ -11,6 +11,7 @@ import { MembreDetailPage } from '../pages/membre-detail/membre-detail';
 import { ProfilPage } from '../pages/profil/profil';
 import { SignupPage } from '../pages/signup/signup';
 import { User } from '../providers/user';
+import { EditUserPage } from '../pages/edit-user/edit-user';
 
 
 import { AuthData } from '../providers/auth-data';
@@ -43,7 +44,7 @@ export class MyApp {
       if(user) {
         // user logged in
         this.currentUser = user;
-        this.rootPage = ChatPage;
+        this.rootPage = ProfilPage;
         //Pour cacher le bouton deconnecter
         this.checkDec = "Ok";
 

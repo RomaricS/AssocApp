@@ -21,6 +21,6 @@ export class ProfilPage {
   }
 
   edit(){
-    this.navCtrl.setRoot(EditUserPage);
+    this.navCtrl.push(EditUserPage);
   }
 }
