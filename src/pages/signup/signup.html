@@ -1,21 +1,20 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar color="secondary">
     <ion-title>Inscription</ion-title>
   </ion-navbar>
 </ion-header>
 
-    <ion-content class="roma" style="background: url(img/card-sf.png) center; background-size: cover;">
+    <ion-content class="roma" style="background: url(img/purple.jpg) center; background-size: cover;">
 
     <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
 
         <div class="hero no-header flat">
             <div class="content">
                 <div class="app-icon" (click)="accessGallery()"></div>
-                <h1>Bienvenue</h1>
             </div>
         </div>
 
-        <div class="list" text-center>
+        <div class="list" text-center padding>
 
             <ion-input #email placeholder="Email" formControlName="email" type="email" (change)="elementChanged(email)"
                 [class.invalid]="!signupForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
@@ -36,12 +35,11 @@
 
             <ion-input #prof formControlName="prof" placeholder="Profession" type="text"></ion-input>
 
-            <ion-item class="erase">
+            <ion-item class="erase" no-line>
                 <ion-label><ion-icon name="calendar"></ion-icon> Date d'entrée</ion-label>
-                <ion-datetime #dateEntree formControlName="dateEntree" displayFormat="DD/MM/YYYY" ></ion-datetime>
+                <ion-datetime #dateEntree formControlName="dateEntree" displayFormat="DD/MM/YYYY">02/02/2017</ion-datetime>
             </ion-item>
 
-             <button ion-button color="primary" outline class="image" (click)="accessGallery()">Charger une image</button>
 
         </div>
 

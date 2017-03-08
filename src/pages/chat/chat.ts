@@ -23,7 +23,7 @@ mesInfos: FirebaseListObservable<any>;
     this.messages = user.getMessages();
     this.mesInfos = user.userfromdb;
 
-
+/*
 //notif
       this.push.register().then((t: PushToken) => {
       return this.push.saveToken(t);
@@ -35,7 +35,7 @@ mesInfos: FirebaseListObservable<any>;
     this.push.rx.notification()
   .subscribe((msg) => {
     alert(msg.title + ': ' + msg.text);
-  });
+  });*/
 
   }
 
