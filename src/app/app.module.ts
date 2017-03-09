@@ -23,6 +23,8 @@ import { EditUserPage } from '../pages/edit-user/edit-user';
 
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
+import { AuthService } from '../providers/auth.service';
+
 
 export const firebaseConfig = {
     apiKey: "AIzaSyBn6l4S0xBJQhAUh3GQAu6B77kV39Qaku4",
@@ -84,6 +86,6 @@ const cloudSettings: CloudSettings = {
     ResetPasswordPage,
     EditUserPage 
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthData, MembresService, User]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthData, AuthService, MembresService, User]
 })
 export class AppModule {}

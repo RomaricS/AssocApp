@@ -3,23 +3,27 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Liste des Résidnents</ion-title>
+    <ion-title>Liste des Résidents</ion-title>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding style="background: url(img/p4.jpg) center; background-size: cover;" padding>
+<ion-content padding>
 <ion-list class="liste" no-lines>
-    <ion-item *ngFor="let member of memberslist | async" (click)="getDetails(member.nom,member.prenom,member.email,member.chambre)">
-
-      <img src="{{member.image}}" class="image" item-left>
-
-     <p>{{member.prenom}} {{member.nom}}</p>
-
-
-          <p item-right> Chambre {{member.chambre}}</p>
-
-
-    </ion-item>
+  
+    <div class="element" *ngFor="let member of memberslist | async" (click)="getDetails(member.nom,member.prenom,member.email,member.chambre)">
+      <ion-item class="membre">
+        <ion-avatar item-left>
+            <img src="{{member.image}}" class="image" >
+        </ion-avatar>
+        
+        <p>{{member.prenom}} {{member.nom}}</p>
+        <p class="sous"> Chambre {{member.chambre}}</p>
+        <button icon-only item-right>
+          <ion-icon name="eye" color="primary"></ion-icon>
+        </button>
+        </ion-item>
+    </div>
+    
   </ion-list>
 </ion-content>

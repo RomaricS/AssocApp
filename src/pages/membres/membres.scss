@@ -1,12 +1,29 @@
 page-membres {
-    .image{
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
+    .liste{
+        *{
+            //background-color: map-get($colors , light );
+        }
+        .element{
+            min-height: 50px;
+        }
+
+
+        .membre {
+            background-color: transparent;
+ 
+
+                p{
+                    color: map-get($colors , dark );
+                    font-weight: bold;
+                }
+                .sous{
+                    color: rgba(127, 140, 141,1.0);
+                }
+                button{
+                    background-color: transparent;
+                }          
+        }
+
     }
 
-    ion-item{
-        background-color: transparent;
-        margin-bottom: 10px;
-    }
 }

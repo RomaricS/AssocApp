@@ -1,21 +1,23 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar color="primary">
-      <ion-title>Menu</ion-title>
+      <ion-title>
+        Menu
+      <ion-icon name="log-out" item-right (click)="logOut()" *ngIf="checkDec"></ion-icon>
+      </ion-title>
+              
     </ion-toolbar>
   </ion-header>
   <ion-content style="background: url(img/p3.jpg) center; background-size: cover;">
     <ion-list class="menu">
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name="home" item-left></ion-icon>
         {{p.title}}
       </button>
-      <button menuClose ion-item (click)="logOut()" *ngIf="checkDec">
-        Déconnexion
-      </button>
+
     </ion-list>
   </ion-content>
 
 </ion-menu>
 
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
