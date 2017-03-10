@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Chat</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<ion-list no-lines *ngFor="let usr of mesInfos | async">
+
+    <div  *ngFor="let msg of allMessages | async">
+
+    <div *ngIf="usr.email != msg.sender">
+        <div class="bubble me" color="primary">
+          <div>
+            <div><span style="font-weight:bold;">{{msg.prenom}} : </span> {{msg.message}}</div>
+            <div>
+                <p>à {{msg.postedAt}}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div *ngIf="usr.email == msg.sender">
+        <div class="bubble you" color="primary">
+          <div>
+            <div><span style="font-weight:bold;">{{msg.prenom}} : </span> {{msg.message}}</div>
+            <div>
+                <p>à {{msg.postedAt}}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    
+    </div>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer class="chatPageFooter">
+  <ion-toolbar>
+
+    <ion-item >
+      <ion-label style="margin:0px;"></ion-label>
+      <div item-content style="width:100%;">
+        <textarea #txtChat placeholder="Type to compose" lineHeight="22" [(ngModel)]="message"></textarea>
+      </div>
+    </ion-item>
+
+    <div class="bas" *ngFor="let usr of mesInfos | async">
+          <ion-buttons right >
+      <button style="min-width:45px;" (click)="sendMessage(usr.nom, usr.prenom, usr.email)">
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+

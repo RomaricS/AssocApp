@@ -17,7 +17,7 @@
             <img src="{{member.image}}" class="image" >
         </ion-avatar>
         
-        <p>{{member.prenom}} {{member.nom}}</p>
+        <p>{{member.prenom}} {{member.nom | uppercase}}</p>
         <p class="sous"> Chambre{{member.chambre}}</p>
         <button icon-only item-right>
           <ion-icon name="eye" color="primary"></ion-icon>

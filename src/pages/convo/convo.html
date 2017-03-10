@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Conversations</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngFor="let user of userProfile | async">
+
+    <ion-list class="liste" no-lines>
+    <div class="element" *ngFor="let convo of convoList | async">
+      <ion-item class="membre" *ngIf="convo.rMail == user.email || convo.sMail == user.email" (click)="read(convo.id)">
+        <ion-avatar item-left>
+            <ion-icon name="chatboxes"></ion-icon>
+        </ion-avatar>
+        <p *ngIf="user.prenom == convo.rname">Discussion avec {{convo.sname}}</p>
+        <p *ngIf="user.prenom == convo.sname">Discussion avec {{convo.rname}}</p>
+        <button icon-only item-right>
+          <ion-icon name="eye" color="primary"></ion-icon>
+        </button>
+        </ion-item>
+    </div>
+  </ion-list>
+  </div>
+</ion-content>

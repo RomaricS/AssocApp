@@ -10,17 +10,18 @@ export class User {
   currentUser:any;
   private authState: FirebaseAuthState;
   userfromdb: FirebaseListObservable<any>;
+  convosList: FirebaseListObservable<any>;
   loadedUsersList: any;
   usersRef:any;
   usersList:any;
   messages: FirebaseListObservable<any>;
+  convoMessages: FirebaseListObservable<any>;
   
 
   constructor(public http: Http,public af: AngularFire,public auth$: AngularFireAuth) {
       auth$.subscribe((state: FirebaseAuthState) => {
       this.authState = state;
        });
-       this.messages = af.database.list('/Messages');
 
        //Récupérrer tableau de données sur user authenttifié
         af.auth.subscribe(user => {
@@ -35,20 +36,6 @@ export class User {
         }
          });
 
-        //partie searchbar de Membres
-        /*
-          this.usersRef = this.af.database.list('/userProfile');
-
-          
-          let users = [];
-          this.usersList.forEach( country => {
-            users.push(country.val());
-          });
-
-          this.usersList = users;
-          this.loadedUsersList = users;
-          
-*/
     }//constructor end
 
     initializeItems(): void {
@@ -73,7 +60,7 @@ export class User {
     }
     
     getFullUserInfos(email:any){
-    //get the member whic email is passed as argument of node userProfile
+    //get the member which email is passed as argument of node userProfile
     this.userfromdb = this.af.database.list('/userProfile', {
       query: {
         orderByChild: 'email',
@@ -82,9 +69,11 @@ export class User {
     });
     //console.log(email);
   }
-  
+  getEmail(){
+    return this.getUserEmail(this.currentUser);
+  }
   loadProfile(){
-    //Récupérer l'email de l'utilisateur courent
+    //Récupérer l'email de l'utilisateur courant
     let email = this.getUserEmail(this.currentUser);
 
     //Passer l'email à la méthode-requete pour Récupérer tout le profil
@@ -93,21 +82,63 @@ export class User {
   }
 
   getMessages(){
-    return this.messages;
+    return this.af.database.list('/Messages');
   }
 
   sendMessage(mess: string,
               nom:string,
               pren:string,
-              mail){
+              mail:string,
+              id:string){
+    this.messages = this.af.database.list('/Messages');    
     this.messages.push({
           message: mess,
           nom: nom,
           prenom: pren,
-          email: mail,
-          time: new Date().toLocaleTimeString()
+          sender: mail,
+          idConvo: id,
+          postedAt: new Date().toLocaleTimeString()
       });
     }
+
+
+
+      getFullUserConvos(){
+    //get all convos
+    return this.convosList = this.af.database.list('/Conversations');
+    //console.log(email);
+       /*return this.convosList = this.af.database.list('/Conversations', {
+      query: {
+        orderByChild: 'id',
+        equalTo: "a@a.com"
+      }
+    });*/
+  
+  }
+
+  createConvo(receiver:string, sender:string, Rname:string, Sname:string){
+    //generate id
+    let id = sender+receiver;
+    //console.log(id);
+    this.convosList.push({
+          id: id,
+          rMail: receiver,
+          sMail: sender,
+          sname: Sname,
+          rname: Rname,
+          time: new Date().toLocaleTimeString()
+      });
+  }
+
+  getAllConvoMessages(id: string){
+    //récupere tous les messages de la conversation dont l'id est passé en argumet
+    return this.convoMessages = this.af.database.list('/Messages', {
+      query: {
+        orderByChild: 'idConvo',
+        equalTo: id
+      }
+    });
+  }
 
 
 }

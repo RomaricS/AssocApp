@@ -16,6 +16,8 @@ import { EditUserPage } from '../pages/edit-user/edit-user';
 import { MembreDetailPage } from '../pages/membre-detail/membre-detail';
 import { ProfilPage } from '../pages/profil/profil';
 import { SignupPage } from '../pages/signup/signup';
+import { ConvoPage } from '../pages/convo/convo';
+import { MessagePage } from '../pages/message/message';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 
 //providers
@@ -62,7 +64,9 @@ const cloudSettings: CloudSettings = {
     LoginPage,
     SignupPage,
     ResetPasswordPage,
-    EditUserPage
+    EditUserPage,
+    ConvoPage,
+    MessagePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -81,7 +85,9 @@ const cloudSettings: CloudSettings = {
     LoginPage,
     SignupPage,
     ResetPasswordPage,
-    EditUserPage 
+    EditUserPage,
+    ConvoPage,
+    MessagePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthData,AuthService, MembresService, User]
 })

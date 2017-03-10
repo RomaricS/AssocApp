@@ -29038,6 +29038,27 @@ page-chat .chatPageFooter .bas {
   flex-direction: row;
 }
 
+page-convo .liste .element {
+  min-height: 50px;
+}
+
+page-convo .liste .membre {
+  background-color: transparent;
+}
+
+page-convo .liste .membre p {
+  color: #222;
+  font-weight: bold;
+}
+
+page-convo .liste .membre .sous {
+  color: #7f8c8d;
+}
+
+page-convo .liste .membre button {
+  background-color: transparent;
+}
+
 page-edit-user img {
   width: 125px;
   height: 125px;
@@ -29206,6 +29227,94 @@ page-membres .liste .membre .sous {
 
 page-membres .liste .membre button {
   background-color: transparent;
+}
+
+page-message .bubble {
+  border-radius: 5px;
+  box-shadow: 0 0 6px #B2B2B2;
+  display: inline-block;
+  padding: 10px 18px;
+  position: relative;
+  vertical-align: top;
+}
+
+page-message .bubble::before {
+  content: "\00a0";
+  display: block;
+  height: 16px;
+  position: absolute;
+  top: 11px;
+  transform: rotate(29deg) skew(-35deg);
+  -moz-transform: rotate(29deg) skew(-35deg);
+  -ms-transform: rotate(29deg) skew(-35deg);
+  -o-transform: rotate(29deg) skew(-35deg);
+  -webkit-transform: rotate(29deg) skew(-35deg);
+  width: 20px;
+}
+
+page-message .me {
+  background-color: #f4f4f4;
+  float: left;
+  margin: 5px 45px 5px 20px;
+  color: #8e44ad;
+  border: 1px solid #8e44ad;
+  /* For Safari 3.1 to 6.0 */
+  transition: background-color 2s;
+}
+
+page-message .me:hover {
+  background-color: #8e44ad;
+  color: #f4f4f4;
+}
+
+page-message .me::before {
+  background-color: #8e44ad;
+  box-shadow: -2px 2px 2px 0 rgba(178, 178, 178, 0.4);
+  left: -9px;
+  border: 1px solid #8e44ad;
+  z-index: -1;
+}
+
+page-message .you {
+  background-color: #f4f4f4;
+  float: right;
+  margin: 5px 20px 5px 45px;
+  color: #f53d3d;
+  border: 1px solid #f53d3d;
+  /* For Safari 3.1 to 6.0 */
+  transition: background-color 2s;
+}
+
+page-message .you::before {
+  background-color: #f53d3d;
+  box-shadow: 2px -2px 2px 0 rgba(178, 178, 178, 0.4);
+  right: -9px;
+  z-index: -1;
+}
+
+page-message .you:hover {
+  background-color: #f53d3d;
+  color: #f4f4f4;
+}
+
+page-message .chatPageFooter textarea {
+  width: 100%;
+  border-radius: 2%;
+}
+
+page-message .chatPageFooter button {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+}
+
+page-message .chatPageFooter .bas {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 page-profil .broker .biggy {

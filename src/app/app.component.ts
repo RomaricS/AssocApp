@@ -11,7 +11,7 @@ import { MembreDetailPage } from '../pages/membre-detail/membre-detail';
 import { ProfilPage } from '../pages/profil/profil';
 import { SignupPage } from '../pages/signup/signup';
 import { User } from '../providers/user';
-import { EditUserPage } from '../pages/edit-user/edit-user';
+import { ConvoPage } from '../pages/convo/convo';
 
 
 import { AuthData } from '../providers/auth-data';
@@ -44,15 +44,16 @@ export class MyApp {
       if(user) {
         // user logged in
         this.currentUser = user;
-        this.rootPage = ChatPage;
+        this.rootPage = HomePage;
         //Pour cacher le bouton deconnecter
         this.checkDec = "Ok";
 
         this.pages = [
         { title: 'Home', component: HomePage },
         { title: 'Annonces', component: AnnoncesPage },
-        { title: 'Chat', component: ChatPage },
+        //{ title: 'Chat', component: ChatPage },
         { title: 'Membres', component: MembresPage },
+        { title: 'Conversations', component: ConvoPage },
         { title: 'Profil', component: ProfilPage },
         
         //{ title: 'Login', component: LoginPage } <= pas necessaire dans le menu

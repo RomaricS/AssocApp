@@ -43,7 +43,7 @@ mesInfos: FirebaseListObservable<any>;
 
 sendMessage(nom:string, pren:string, mail:string){
   //console.log(this.message);
-  this.user.sendMessage(this.message, nom, pren, mail);
+  //this.user.sendMessage(this.message, nom, pren, mail);
   this.message="";
 }
 

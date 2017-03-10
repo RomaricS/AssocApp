@@ -9,7 +9,7 @@
 
 
 <ion-content padding style="background: url(img/bg1.jpg) center; background-size: cover;">
-  <ion-card>
+  <ion-card *ngFor="let user of currentU | async">
     <ion-card-header>
       {{ prenom }}
     </ion-card-header>
@@ -33,6 +33,11 @@
       <button ion-item>
         <ion-icon name="home" item-left></ion-icon>
         Réside au {{ chambre }}
+      </button>
+
+        <button ion-item (click)="createMessage(user.prenom)">
+        <ion-icon name="send" item-left></ion-icon>
+        Lui écrire
       </button>
 
     </ion-list>
