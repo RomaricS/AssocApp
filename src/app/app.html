@@ -3,9 +3,14 @@
     <ion-toolbar color="primary">
       <ion-title>
         Menu
-      <ion-icon name="log-out" item-right (click)="logOut()" *ngIf="checkDec"></ion-icon>
       </ion-title>
-              
+    
+    <ion-buttons end>
+        <button ion-button icon-only (click)="logOut()" *ngIf="checkDec">
+        <ion-icon name="log-out"></ion-icon>
+        </button>
+    </ion-buttons>
+
     </ion-toolbar>
   </ion-header>
   <ion-content style="background: url(img/p3.jpg) center; background-size: cover;">
