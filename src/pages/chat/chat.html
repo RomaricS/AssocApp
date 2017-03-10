@@ -7,11 +7,11 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding style="background: url(img/p2.jpg) center; background-size: cover;" padding>
+<ion-content padding>
 
-  <ion-list no-lines *ngFor="let usr of mesInfos | async">
+<ion-list no-lines *ngFor="let usr of mesInfos | async">
 
-    <ion-item  *ngFor="let msg of messages | async">
+    <div  *ngFor="let msg of messages | async">
 
     <div *ngIf="usr.email != msg.email">
         <div class="bubble me" color="primary">
@@ -36,7 +36,7 @@
     </div>
 
     
-    </ion-item>
+    </div>
   </ion-list>
 
 </ion-content>

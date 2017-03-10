@@ -58,12 +58,6 @@ export class AuthService {
       }, (error) => Promise.reject(error));
   }
 
-  /**
-   * sign in with github
-   */
-  private signInWithGithub() {
-    return this.signInWithProvider(AuthProviders.Github);
-  }
 
   private signInWithProvider(provider: any, method: any = AuthMethods.Popup ) {
     return this.af.auth.login({ provider: provider, method: method })
@@ -85,9 +79,6 @@ export class AuthService {
         });
   }
 
-  logout() {
-    this.getAuth().logout();
-  }
 
   /**
    * get current user (auth status)

@@ -38,6 +38,19 @@
     </form>
 
 
+  <ion-fab bottom right edge>
+    <button ion-fab mini><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+        <button ion-fab color="facebook" (click)="loginWithFacebook()">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </button>
+        <button ion-fab color="google" (click)="loginWithGoogle()">
+            <ion-icon name="logo-googleplus"></ion-icon>
+        </button>
+    </ion-fab-list>
+  </ion-fab>
+
+
 </ion-content>
 
 <ion-footer padding class="foot">

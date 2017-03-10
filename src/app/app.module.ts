@@ -1,30 +1,27 @@
+//Modules
 import { AngularFireModule } from 'angularfire2';
-
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
+//pages
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { AnnoncesPage } from '../pages/annonces/annonces';
 import { ChatPage } from '../pages/chat/chat';
 import { MembresPage } from '../pages/membres/membres';
-
+import { MembresService } from '../services/membres/membres.services';
+import { EditUserPage } from '../pages/edit-user/edit-user';
 import { MembreDetailPage } from '../pages/membre-detail/membre-detail';
 import { ProfilPage } from '../pages/profil/profil';
 import { SignupPage } from '../pages/signup/signup';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 
+//providers
+import { AuthService } from '../providers/auth.services';
 import { AuthData } from '../providers/auth-data';
 import { User } from '../providers/user';
-
-import { MembresService } from '../services/membres/membres.services';
-import { EditUserPage } from '../pages/edit-user/edit-user';
-
-import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
-
-import { AuthService } from '../providers/auth.service';
-
 
 export const firebaseConfig = {
     apiKey: "AIzaSyBn6l4S0xBJQhAUh3GQAu6B77kV39Qaku4",
@@ -86,6 +83,6 @@ const cloudSettings: CloudSettings = {
     ResetPasswordPage,
     EditUserPage 
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthData, AuthService, MembresService, User]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthData,AuthService, MembresService, User]
 })
 export class AppModule {}

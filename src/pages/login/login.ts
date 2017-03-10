@@ -11,8 +11,7 @@ import { ResetPasswordPage } from '../reset-password/reset-password';
 import { HomePage } from '../home/home';
 import { EmailValidator } from '../../validators/email';
 
-import { AuthService, AuthMode } from '../../providers/auth.service';
-
+import { AuthService, AuthMode } from '../../providers/auth.services';
 
 @Component({
   selector: 'page-profil',
@@ -27,7 +26,7 @@ export class LoginPage {
 
   constructor(public nav: NavController, public authData: AuthData, 
     public formBuilder: FormBuilder, public alertCtrl: AlertController, 
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController, public authService: AuthService) {
 
     this.loginForm = formBuilder.group({
       email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
@@ -83,15 +82,11 @@ export class LoginPage {
     this.nav.setRoot(page+"Page");
   }
 
-    /**
-
   loginWithFacebook() {
     this.login(AuthMode.Facebook)
   }
 
- 
-
-  loginWithGoogle() {
+   loginWithGoogle() {
     this.login(AuthMode.GooglePlus);
   }
 
@@ -100,29 +95,8 @@ export class LoginPage {
     loading.present();
 
     this.authService.login(mode)
-      .then((data) => {
-        this.authService.getFullProfile(data.uid)
-          .first()
-          .subscribe((user) => {
-            if (user.$value == null) {
-              this.authService.createAccount(data.auth)
-                .then( _=> {
-                  loading.dismiss();
-                  this.navCtrl.setRoot(TabsPage);
-                }, (error)=> this.showMessage(error.message || 'Unknown error'));
-            } else {
-              loading.dismiss();
-              this.navCtrl.setRoot(TabsPage);
-            }
-          }, (error)=> {
-            loading.dismiss();
-            this.showMessage(error.message || 'Unknown error');
-          });
-      }, (error)=>{
-        loading.dismiss();
-        this.showMessage(error.message || 'Unknown error');
-    });
+
   }
-*/
+
 }
 

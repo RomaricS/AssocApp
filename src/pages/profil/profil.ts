@@ -17,7 +17,6 @@ export class ProfilPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public user: User) {
     user.loadProfile();
     this.userProfile = user.userfromdb;
-    console.log(user.userfromdb);
   }
 
   edit(){
