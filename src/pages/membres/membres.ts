@@ -34,27 +34,4 @@ export class MembresPage {
     chambre: chambre
 });
   }
-
-    getItems(searchbar) {
-    // Reset items back to all of the items
-    this.user.initializeItems();
-
-    // set q to the value of the searchbar
-    var q = searchbar.srcElement.value;
-
-
-    // if the value is an empty string don't filter the items
-    if (!q) {
-      return;
-    }
-
-    this.user.usersList = this.user.usersList.filter((v) => {
-      if(v.nom && q) {
-        if (v.nom.toLowerCase().indexOf(q.toLowerCase()) > -1) {
-          return true;
-        }
-        return false;
-      }
-    });
-  }
 }

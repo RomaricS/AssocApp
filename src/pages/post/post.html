@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nouvelle Annonce</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding *ngFor="let user of userProfile | async">
+<div class="hero flat">
+            <div class="content">
+                <p>Image</p>
+                <img src="{{image}}" (click)="accessGallery()">
+            </div>
+        </div>
+
+        <div class="list" padding>
+          <ion-item>
+            <ion-label floating>Titre</ion-label>
+            <ion-input [(ngModel)]="title" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Description</ion-label>
+            <ion-textarea [(ngModel)]="description"></ion-textarea>
+          </ion-item>
+
+            <ion-item>
+            <ion-label>Date de l'evenement</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="eventDate"></ion-datetime>
+            </ion-item>
+
+            <ion-item>
+            <ion-label>Heure de l'evenement</ion-label>
+            <ion-datetime displayFormat="hh:mm" [(ngModel)]="eventHour"></ion-datetime>
+            </ion-item>
+
+              <ion-item>
+                <ion-label>Type d'evenement</ion-label>
+                <ion-select [(ngModel)]="type">
+                  <ion-option value="annonce" selected="true">Annonce (Vente/achat)</ion-option>
+                  <ion-option value="evenement">Evenement</ion-option>
+                  <ion-option value="infos">Information</ion-option>
+                  <ion-option value="pub">Publication</ion-option>
+                </ion-select>
+              </ion-item>
+
+        </div>
+
+        <div class="padding">
+            <button class="button button-full ink creer" (click)="createNewPost(user.nom, user.prenom,user.email)">Créer</button>
+        </div>
+</ion-content>

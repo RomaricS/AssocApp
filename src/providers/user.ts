@@ -9,13 +9,17 @@ import { AngularFireAuth, FirebaseAuthState, AuthMethods } from 'angularfire2';
 export class User {
   currentUser:any;
   private authState: FirebaseAuthState;
+
   userfromdb: FirebaseListObservable<any>;
   convosList: FirebaseListObservable<any>;
+  annonces: FirebaseListObservable<any>;
+  messages: FirebaseListObservable<any>;
+  convoMessages: FirebaseListObservable<any>;
+
   loadedUsersList: any;
   usersRef:any;
   usersList:any;
-  messages: FirebaseListObservable<any>;
-  convoMessages: FirebaseListObservable<any>;
+
   
 
   constructor(public http: Http,public af: AngularFire,public auth$: AngularFireAuth) {
@@ -106,14 +110,7 @@ export class User {
       getFullUserConvos(){
     //get all convos
     return this.convosList = this.af.database.list('/Conversations');
-    //console.log(email);
-       /*return this.convosList = this.af.database.list('/Conversations', {
-      query: {
-        orderByChild: 'id',
-        equalTo: "a@a.com"
-      }
-    });*/
-  
+ 
   }
 
   createConvo(receiver:string, sender:string, Rname:string, Sname:string){
@@ -140,5 +137,30 @@ export class User {
     });
   }
 
+  getPosts(){
+     return this.annonces = this.af.database.list('/Annonces');
+  }
+
+  newPost(
+      author,
+      mail,
+      title,
+      description,
+      eventDate,
+      eventHour,
+      image,
+      type
+  ){
+    this.annonces.push({
+      author : author,
+      mail : mail,
+      title : title,
+      desc : description,
+      evDate : eventDate,
+      evHour : eventHour,
+      evImg : image,
+      evType : type
+    });
+  }
 
 }

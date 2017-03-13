@@ -67,8 +67,12 @@
         </div>
 
         <ion-fab bottom right>
-            <button ion-fab mini (click)="edit(user)">
-                <ion-icon name="create"></ion-icon></button>
+            <button ion-fab mini>
+                <ion-icon name="arrow-dropleft"></ion-icon></button>
+                <ion-fab-list side="left">
+                    <button ion-fab  (click)="edit(user)"><ion-icon name="person"></ion-icon></button>
+                    <button ion-fab (click)="createPost()"><ion-icon name="create" ></ion-icon></button>
+                </ion-fab-list>
         </ion-fab>
 
 </ion-content>

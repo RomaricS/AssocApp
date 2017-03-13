@@ -9,7 +9,6 @@ import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { AnnoncesPage } from '../pages/annonces/annonces';
-import { ChatPage } from '../pages/chat/chat';
 import { MembresPage } from '../pages/membres/membres';
 import { MembresService } from '../services/membres/membres.services';
 import { EditUserPage } from '../pages/edit-user/edit-user';
@@ -19,6 +18,9 @@ import { SignupPage } from '../pages/signup/signup';
 import { ConvoPage } from '../pages/convo/convo';
 import { MessagePage } from '../pages/message/message';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+import { AnnonceDetailPage } from '../pages/annonce-detail/annonce-detail';
+import { MypostPage } from '../pages/mypost/mypost';
+import { PostPage } from '../pages/post/post';
 
 //providers
 import { AuthService } from '../providers/auth.services';
@@ -57,7 +59,6 @@ const cloudSettings: CloudSettings = {
     MyApp,
     HomePage,
     AnnoncesPage,
-    ChatPage,
     MembresPage,
     MembreDetailPage,
     ProfilPage,
@@ -66,7 +67,10 @@ const cloudSettings: CloudSettings = {
     ResetPasswordPage,
     EditUserPage,
     ConvoPage,
-    MessagePage
+    MessagePage,
+    AnnonceDetailPage,
+    MypostPage,
+    PostPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -78,7 +82,6 @@ const cloudSettings: CloudSettings = {
     MyApp,
     HomePage,
     AnnoncesPage,
-    ChatPage,
     MembresPage,
     MembreDetailPage,
     ProfilPage,
@@ -87,7 +90,10 @@ const cloudSettings: CloudSettings = {
     ResetPasswordPage,
     EditUserPage,
     ConvoPage,
-    MessagePage
+    MessagePage,
+    AnnonceDetailPage,
+    MypostPage,
+    PostPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthData,AuthService, MembresService, User]
 })

@@ -4,6 +4,7 @@ import { User } from '../../providers/user';
 import { FirebaseListObservable } from 'angularfire2';
 
 import { EditUserPage } from '../edit-user/edit-user';
+import { PostPage } from '../post/post';
 
 @Component({
   selector: 'page-profil',
@@ -28,5 +29,9 @@ export class ProfilPage {
       prof : user.prof,
       img : user.image
     });
+  }
+
+  createPost(){
+    this.navCtrl.setRoot(PostPage);
   }
 }

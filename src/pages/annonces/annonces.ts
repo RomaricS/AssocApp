@@ -1,40 +1,36 @@
 import { Component } from '@angular/core';
-
 import { NavController, NavParams } from 'ionic-angular';
+import { FirebaseListObservable } from 'angularfire2';
+import { AnnonceDetailPage } from '../annonce-detail/annonce-detail';
+import { MypostPage } from '../mypost/mypost';
+import { PostPage } from '../post/post';
+import { User } from '../../providers/user';
 
 @Component({
   selector: 'page-annonces',
   templateUrl: 'annonces.html'
 })
 export class AnnoncesPage {
-  
-selectedItem: any;
-  icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  postslist: FirebaseListObservable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
-
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+  constructor(public navCtrl: NavController, public user: User) {
+    this.postslist = this.user.getPosts();
+    //console.log(this.postslist);
   }
 
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(AnnoncesPage, {
-      item: item
-    });
+
+  getPostDetails(nom: string, prenom: string, mail: string, chambre: number): void{
+    this.navCtrl.push(AnnonceDetailPage, {
+    nom: nom,
+    prenom: prenom,
+    email: mail,
+    chambre: chambre
+});
+  }
+
+  create(){
+    this.navCtrl.setRoot(PostPage);
   }
 
 }

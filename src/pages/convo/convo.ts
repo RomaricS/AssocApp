@@ -26,5 +26,9 @@ export class ConvoPage {
     });
   }
 
+  deleteConvo(convo) {
+  this.convoList.remove(convo);
+}
+
 
 }

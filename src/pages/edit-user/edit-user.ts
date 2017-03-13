@@ -1,7 +1,7 @@
 import { NavController,NavParams } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { Camera } from 'ionic-native';
-;
+
 import { AuthData } from '../../providers/auth-data';
 import { ProfilPage } from '../profil/profil';
 import { User } from '../../providers/user';

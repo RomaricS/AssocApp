@@ -28950,94 +28950,6 @@ sub {
   background-color: transparent;
 }
 
-page-chat .bubble {
-  border-radius: 5px;
-  box-shadow: 0 0 6px #B2B2B2;
-  display: inline-block;
-  padding: 10px 18px;
-  position: relative;
-  vertical-align: top;
-}
-
-page-chat .bubble::before {
-  content: "\00a0";
-  display: block;
-  height: 16px;
-  position: absolute;
-  top: 11px;
-  transform: rotate(29deg) skew(-35deg);
-  -moz-transform: rotate(29deg) skew(-35deg);
-  -ms-transform: rotate(29deg) skew(-35deg);
-  -o-transform: rotate(29deg) skew(-35deg);
-  -webkit-transform: rotate(29deg) skew(-35deg);
-  width: 20px;
-}
-
-page-chat .me {
-  background-color: #f4f4f4;
-  float: left;
-  margin: 5px 45px 5px 20px;
-  color: #8e44ad;
-  border: 1px solid #8e44ad;
-  /* For Safari 3.1 to 6.0 */
-  transition: background-color 2s;
-}
-
-page-chat .me:hover {
-  background-color: #8e44ad;
-  color: #f4f4f4;
-}
-
-page-chat .me::before {
-  background-color: #8e44ad;
-  box-shadow: -2px 2px 2px 0 rgba(178, 178, 178, 0.4);
-  left: -9px;
-  border: 1px solid #8e44ad;
-  z-index: -1;
-}
-
-page-chat .you {
-  background-color: #f4f4f4;
-  float: right;
-  margin: 5px 20px 5px 45px;
-  color: #f53d3d;
-  border: 1px solid #f53d3d;
-  /* For Safari 3.1 to 6.0 */
-  transition: background-color 2s;
-}
-
-page-chat .you::before {
-  background-color: #f53d3d;
-  box-shadow: 2px -2px 2px 0 rgba(178, 178, 178, 0.4);
-  right: -9px;
-  z-index: -1;
-}
-
-page-chat .you:hover {
-  background-color: #f53d3d;
-  color: #f4f4f4;
-}
-
-page-chat .chatPageFooter textarea {
-  width: 100%;
-  border-radius: 2%;
-}
-
-page-chat .chatPageFooter button {
-  height: 48px;
-  width: 48px;
-  border-radius: 50%;
-}
-
-page-chat .chatPageFooter .bas {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
 page-convo .liste .element {
   min-height: 50px;
 }
@@ -29315,6 +29227,11 @@ page-message .chatPageFooter .bas {
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+page-post .creer {
+  color: white;
+  background-color: #8e44ad;
 }
 
 page-profil .broker .biggy {

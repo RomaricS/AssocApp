@@ -10,18 +10,26 @@
 <ion-content padding>
   <div *ngFor="let user of userProfile | async">
 
-    <ion-list class="liste" no-lines>
+    <ion-list class="liste">
     <div class="element" *ngFor="let convo of convoList | async">
-      <ion-item class="membre" *ngIf="convo.rMail == user.email || convo.sMail == user.email" (click)="read(convo.id)">
+      <ion-item-sliding class="membre" *ngIf="convo.rMail == user.email || convo.sMail == user.email">
+        <ion-item>
         <ion-avatar item-left>
             <ion-icon name="chatboxes"></ion-icon>
         </ion-avatar>
-        <p *ngIf="user.prenom == convo.rname">Discussion avec {{convo.sname}}</p>
-        <p *ngIf="user.prenom == convo.sname">Discussion avec {{convo.rname}}</p>
+        <p *ngIf="user.prenom == convo.rname" (click)="read(convo.id)">Discussion avec {{convo.sname}}</p>
+        <p *ngIf="user.prenom == convo.sname" (click)="read(convo.id)">Discussion avec {{convo.rname}}</p>
         <button icon-only item-right>
           <ion-icon name="eye" color="primary"></ion-icon>
         </button>
         </ion-item>
+        <ion-item-options>
+          <button ion-button icon-left (click)="deleteConvo(convo)">
+          <ion-icon name="trash" color="danger"></ion-icon>
+         <p> Supprimer</p>
+        </button>
+      </ion-item-options>
+      </ion-item-sliding>
     </div>
   </ion-list>
   </div>

@@ -1,23 +1,59 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Annonces</ion-title>
+        <ion-buttons end>
+        <button ion-button icon-only (click)="create()">
+        <ion-icon name="create"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+<ion-content padding >
+<ion-card *ngFor="let post of postslist | async">
+<div *ngIf="!post">
+test
+</div>
+  <ion-item>
+    <ion-avatar item-left>
+      <div class="{{post.type}}"></div>
+    </ion-avatar>
+    <h2>{{post.title}}</h2>
+    <p>{{post.author}}</p>
+  </ion-item>
+
+  <img src="{{post.image}}">
+
+  <ion-card-content>
+    <p>{{post.desc}}</p>
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>{{post.evHour}}</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-left clear small (click)="getDetails(member.nom,member.prenom,member.email,member.chambre)">
+        <ion-icon name="text"></ion-icon>
+        <div>{{post.evDate}}</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+      <ion-note>
+        {{post.type}}
+      </ion-note>
+    </ion-col>
+  </ion-row>
+
+</ion-card>
+
+
 </ion-content>
+
+

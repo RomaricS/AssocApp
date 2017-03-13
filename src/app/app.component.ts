@@ -5,7 +5,6 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { AnnoncesPage } from '../pages/annonces/annonces';
-import { ChatPage } from '../pages/chat/chat';
 import { MembresPage } from '../pages/membres/membres';
 import { MembreDetailPage } from '../pages/membre-detail/membre-detail';
 import { ProfilPage } from '../pages/profil/profil';
@@ -17,6 +16,10 @@ import { ConvoPage } from '../pages/convo/convo';
 import { AuthData } from '../providers/auth-data';
 import { AngularFire, AuthProviders } from 'angularfire2';
 
+import {
+  Push,
+  PushToken
+} from '@ionic/cloud-angular';
 
 //finir avec l'utilisateur connecté puis passer au profil
 
@@ -34,7 +37,7 @@ export class MyApp {
 
 
   constructor(public platform: Platform, public authD:AuthData, 
-    public loadingCtrl: LoadingController,public af: AngularFire) {
+    public loadingCtrl: LoadingController,public af: AngularFire,public push: Push) {
     this.initializeApp();
 
 
@@ -44,7 +47,7 @@ export class MyApp {
       if(user) {
         // user logged in
         this.currentUser = user;
-        this.rootPage = ProfilPage;
+        this.rootPage = AnnoncesPage;
         //Pour cacher le bouton deconnecter
         this.checkDec = "Ok";
 
@@ -70,9 +73,21 @@ export class MyApp {
         { title: 'Connexion', component: LoginPage },
       ];
     }
-    });
-
-  }
+  });
+  
+  
+//notif
+      this.push.register().then((t: PushToken) => {
+        return this.push.saveToken(t);
+      }).then((t: PushToken) => {
+        console.log('Token saved:', t.token);
+      });
+ 
+      this.push.rx.notification()
+      .subscribe((msg) => {
+        console.log('I received awesome push: ' + msg);
+      });
+  }//fin constructor
 
   initializeApp() {
     this.platform.ready().then(() => {
