@@ -4,13 +4,11 @@
   </ion-navbar>
 </ion-header>
 
-    <ion-content class="roma" style="background: url(img/p2.jpg) center; background-size: cover;" *ngFor="let pfl of monProfil | async" padding>
-
-    <form [formGroup]="editForm" (submit)="editUser()" novalidate>
+    <ion-content class="roma" style="background: url(img/P2.jpg) center; background-size: cover;" padding>
 
         <div class="hero flat">
             <div class="content">
-                <img src="{{pfl.image}}" class="rotate90" (click)="accessGallery()">
+                <img src="{{userInfos.image}}" class="rotate90" (click)="accessGallery()">
             </div>
             <p>
             </p>
@@ -18,32 +16,22 @@
 
         <div class="list" padding>
 
-            <ion-input #email placeholder="{{pfl.email}}" formControlName="email" type="email" ></ion-input>
+            <ion-input [(ngModel)]="userInfos.email" placeholder="Votre email" type="email"></ion-input>
 
+            <ion-input [(ngModel)]="userInfos.password" placeholder="Entrez le mot de passe" type="password"></ion-input>
 
-            <ion-input #password placeholder="Entrez le mot de passe" formControlName="password" type="password" ></ion-input>
+            <ion-input [(ngModel)]="userInfos.nom" placeholder="Votre nom" type="text"></ion-input>
 
+            <ion-input [(ngModel)]="userInfos.prenom" placeholder="Votre prénom" type="text"></ion-input>
 
-            <ion-input #nom placeholder="{{pfl.nom | uppercase}}" formControlName="nom" type="text"></ion-input>
+            <ion-input [(ngModel)]="userInfos.prof" placeholder="Votre Profession" type="text"></ion-input>
 
-            <ion-input #prenom placeholder="{{pfl.prenom}}" formControlName="prenom" type="text"></ion-input>
-
-            <ion-input #chambre placeholder="{{pfl.chambre}}" formControlName="chambre" type="text"></ion-input>
-
-            <ion-input #prof placeholder="{{pfl.prof}}" formControlName="prof" type="text"></ion-input>
-
-            <ion-item class="erase">
-                <ion-label><ion-icon name="calendar"></ion-icon> Date d'entrée</ion-label>
-                <ion-datetime #dateEntree formControlName="dateEntree" displayFormat="DD/MM/YYYY" ></ion-datetime>
-            </ion-item>
 
         </div>
 
         <div class="padding">
-            <button class="button button-full ink" type="submit">Enregistrer</button>
+            <button class="button button-full ink" (click)="editUser(userInfos.nom,userInfos.prenom,userInfos.email,userInfos.password,userInfos.prof)">Enregistrer</button>
         </div>
-       
-    </form>
 
 </ion-content>
 

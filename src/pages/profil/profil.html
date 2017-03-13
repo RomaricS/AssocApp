@@ -6,13 +6,6 @@
       </button>
 
     <ion-title>Profil</ion-title>
-
-    <ion-buttons end>
-        <button ion-button icon-only (click)="edit()">
-        <ion-icon name="create"></ion-icon>
-        </button>
-    </ion-buttons>
-
   </ion-navbar>
 </ion-header>
 
@@ -21,7 +14,7 @@
 
             <div class="lil">
                 <ion-thumbnail item-left>
-                <img src="{{user.image}}" class="rotate90">
+                <img src="{{user.image}}">
                 </ion-thumbnail>
                 <p>{{user.nom | uppercase}} {{user.prenom}}</p>
 
@@ -73,4 +66,12 @@
 
         </div>
 
+        <ion-fab bottom right>
+            <button ion-fab mini (click)="edit(user)">
+                <ion-icon name="create"></ion-icon></button>
+        </ion-fab>
+
 </ion-content>
+<ion-footer>
+
+</ion-footer>

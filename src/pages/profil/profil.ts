@@ -18,7 +18,15 @@ export class ProfilPage {
     this.userProfile = user.userfromdb;
   }
 
-  edit(){
-    this.navCtrl.push(EditUserPage);
+  edit(user){
+    this.navCtrl.push(EditUserPage, {
+      key : user.$key,
+      pren : user.prenom,
+      nom : user.nom,
+      mail : user.email,
+      pass : user.password,
+      prof : user.prof,
+      img : user.image
+    });
   }
 }

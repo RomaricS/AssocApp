@@ -43,7 +43,7 @@
 
 <ion-footer class="chatPageFooter">
   <ion-toolbar>
-
+<div class="bas" *ngFor="let usr of mesInfos | async">
     <ion-item >
       <ion-label style="margin:0px;"></ion-label>
       <div item-content style="width:100%;">
@@ -51,8 +51,8 @@
       </div>
     </ion-item>
 
-    <div class="bas" *ngFor="let usr of mesInfos | async">
-          <ion-buttons right >
+    
+      <ion-buttons end>
       <button style="min-width:45px;" (click)="sendMessage(usr.nom, usr.prenom, usr.email)">
         <ion-icon name="send"></ion-icon>
       </button>

@@ -44,7 +44,7 @@ export class MyApp {
       if(user) {
         // user logged in
         this.currentUser = user;
-        this.rootPage = HomePage;
+        this.rootPage = ProfilPage;
         //Pour cacher le bouton deconnecter
         this.checkDec = "Ok";
 
